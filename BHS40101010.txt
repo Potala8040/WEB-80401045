@@ -1,0 +1,23 @@
+lftp dedibackup-dc3.online.net -u sd-127262,haokewei
+
+
+
+apt-get remove vim-common
+apt-get install vim
+
+
+vi /etc/network/interfaces
+
+auto vmbr1
+iface vmbr1 inet static
+    address 40.10.11.10
+    netmask 255.255.255.0
+    bridge_ports none
+    bridge_stp off
+    bridge_fd 0
+    post-up echo 1 > /proc/sys/net/ipv4/ip_forward
+    post-up iptables -t nat -A POSTROUTING -s '40.10.11.0/24' -o vmbr0 -j MASQUERADE
+    post-down iptables -t nat -D POSTROUTING -s '40.10.11.0/24' -o vmbr0 -j MASQUERADE
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 51028 -j DNAT --to 40.10.11.11:22
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 51028 -j DNAT --to 40.10.11.11:22
+	

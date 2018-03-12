@@ -1,0 +1,120 @@
+<table style="width: 800px;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td align="left" valign="top"><span>亲爱的用户{$client_last_name}：</span></td>
+</tr>
+<tr>
+<td align="left" valign="top"><br /> 
+<strong><span style="font-family: arial, helvetica, sans-serif;">您的虚拟主机已开通，详细信息如下：</span></strong> 
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>服务编号</strong></span>：QRWL-S{$service_id}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>节点编号</strong></span>：{$service_server_name}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>产品名称</strong></span>：{$service_product_name} 
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>产品类型</strong></span>：Linux平台-PHP，Easypanel 
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>登陆账号</strong></span>：{$client_email}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>登陆密码</strong></span>：(隐藏)如忘记密码可通过控制台取回
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>面板地址</strong></span>：<a href="https://console.cloud.qiangidc.net">https://console.cloud.qiangidc.net</a>
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>首付金额</strong></span>：{$service_first_payment_amount}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>定期金额</strong></span>：{$service_recurring_amount}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>结算周期</strong></span>：{$service_billing_cycle}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>到期时间</strong></span>：{$service_next_due_date}
+<br />
+<br />主机WEB信息：
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>赠送域名</strong></span>：<a href="http://{$service_username}.{$service_ns1}">http://{$service_username}.{$service_ns1}</a> (仅限临时使用，请尽快绑定自有域名)
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>解析地址</strong></span>：{$service_ns2} (自有域名的CNAME解析地址)
+<br />
+<br />主机FTP信息：
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>连接地址</strong></span>：{$service_server_hostname}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>连接端口</strong></span>：51021
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>用户名称</strong></span>：{$service_username}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>用户密码</strong></span>：{$service_password}
+<br />
+<br />主机SQL信息：
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>连接地址</strong></span>：localhost 
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>连接端口</strong></span>：3306
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>用户名称</strong></span>：{$service_username}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>数据库名</strong></span>：{$service_username}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>用户密码</strong></span>：{$service_password}
+<br />
+<span>----------------------------------------------</span>
+<br />域名绑定提示： 
+<br />我们建议您使用CNAME的方式解析您的域名，
+<br />CNAME的优势在于当服务器发生故障时我们可以快速将您的网站切换到其他可用节点。
+<br />我们会根据当前线路质量分配最优质空闲的前端节点服务器，。
+<br />当前服务器分配的CNAME地址是 {$service_ns2}
+<br />
+<br />域名绑定示例： 
+<br />方式一，CNAME记录解析方式
+<br />举例您的域名是 www.qiangidc.com
+<br />第一个步骤，联系您的域名服务商将 www 使用CNAME记录的方式解析到 {$service_ns2}
+<br />第二个步骤，登陆虚拟主机的控制面板，绑定您域名 www.qiangidc.com
+<br />此时您的网站就可以打开了，但有些域名服务商的解析比较慢，最长可能需要72小时才能完成 
+<br />
+<br />方式二，A记录解析方式 (不推荐)
+<br />特别注意：A记录的方式将无法保证线路最优配置，并且我们不会对调整节点之前做出提前通知
+<br />举例说明：某台前端节点被攻击，如果您的网站解析到这个固定节点IP后，我们无法做到故障自动切换。
+<br />举例说明：某台前端节点线路质量变差，如果您的网站解析到这个节点时网站速度也跟着变慢。
+<br />如果您的程序必须要一个固定IP地址请购买我公司带独立IP的虚拟主机产品，
+<br />广州，上海，北京，四川，香港等5个机房的固定IP地址3年付仅需85人民币。北京机房的IP量大从优。
+<br />
+<br />再次强调，我们无法保证某个固定IP的前端节点线路一直是最佳状态，更无法保证您的网站可以正常打开。
+<br />如果您明白了使用CNAME的优势和使用A记录的劣势后 仍然要解析到某个固定IP节点时请根据以下方式解析
+<br />
+<br />第一步，从CNAME记录获取节点的IP地址
+<br />使用windows的ping命令获取，开始-运行-cmd 回车后即可打开cmd的窗口 在cmd的窗口内输入以下内容
+<br />ping {$service_ns2}
+<br />然后回车键会得到CNAME给出的临时节点IP地址，大部分节点我们都做了禁止ICMP包的安全策略，也就是禁PING了
+<br />得到IP地址后 根据以下方式进行解析
+<br />举例您的域名是 www.qiangidc.com
+<br />第一个步骤，联系您的域名服务商将 www 使用A记录的方式解析到 ping CNAME记录获的ip
+<br />第二个步骤，登陆虚拟主机的控制面板，绑定您域名 www.qiangidc.com
+<br />此时您的网站就可以打开了，但有些域名服务商的解析比较慢，最长可能需要72小时才能完成
+<br />
+<br />数据上传提示： 
+<br />您可以通过控制面板中的文件管理功能进行上传数据，或者通过FTP服务器进行上传
+<br />如果您使用FTP工具上传请切记您的FTP服务器端口是51021，我们建议使用Winscp来管理您的FTP服务器
+<br />因为默认情况下域名是绑定到wwwroot目录，所以您的程序也应该上传到FTP根目录下面的wwwroot目录
+<br />如果您在域名绑定的界面将域名绑定到了其他目录，那么程序应该上传到您自己指定的目录
+<br />
+<br />数据上传建议： 
+<br />强人网络所有虚拟主机产品均支持.ZIP格式的在线压缩或解压， 
+<br />您可以把您的程序打包压缩后再上传，然后通过虚拟主机的控制面板中的文件管理功能进行解压，这样可以有效的提高上传时间。
+<br />如果不能解压请根据下面流程即可百分百解决解压失败的错误
+<br />一般解压失败的情况都是压缩包格式不正确导致的不能解压
+<br />必须是标准zip格式 
+<br />比如 winrar 7zip linux里面的unzip 或者windows系统中自带的打包压缩软件 压出来的都是标准zip包
+<br />国产的各种压缩软件都可能无法解压
+<br />一般大型下载网站都是标准zip格式，
+<br />如果压缩包不能解压怎么解决？
+<br />第一 确认是否有密码 如果有密码就输入密码，没有密码留空
+<br />第二 确认是否是标准zip格式，即使国产的压缩软件压出来的zip也不一定是标准格式。
+<br />如果不是标准zip格式 比如 .rar后缀的 或者各类国产压缩软件压出来的 请先把压缩包下载到本地电脑
+<br />然后本地电脑安装 7zip 给文件打包成zip格式 然后在上传到服务器解压即可
+<br />我们建议压缩包的文件名用数字或字母来命名，中文文件名的压缩包也可能会失败。
+<br />
+<br />{$signature} 
+<br /><br /></td>
+</tr>
+</tbody>
+</table>
