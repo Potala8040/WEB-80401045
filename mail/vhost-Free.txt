@@ -37,17 +37,9 @@
 <br /><span style="font-family: arial, helvetica, sans-serif;">
 <strong>解析地址</strong></span>：{$service_ns2} (自有域名的CNAME解析地址)
 <br />
-<br />主机FTP信息：(仅限站长扶持计划中的海外机房需要设置代理，其他机房产品一律不需要设置)
+<br />主机FTP信息：
 <br /><span style="font-family: arial, helvetica, sans-serif;">
-<strong>连接地址</strong></span>：{$service_server_hostname}
-<br /><span style="font-family: arial, helvetica, sans-serif;">
-<strong>连接端口</strong></span>：51021
-<br /><span style="font-family: arial, helvetica, sans-serif;">
-<strong>代理设置</strong></span>：如需使用代理请查看邮件最底部的数据上传提示
-<br /><span style="font-family: arial, helvetica, sans-serif;">
-<strong>用户名称</strong></span>：{$service_username}
-<br /><span style="font-family: arial, helvetica, sans-serif;">
-<strong>用户密码</strong></span>：{$service_password}
+<strong>连接地址</strong></span>：当前产品可以使用网页版本的FTP 控制面板中的文件管理功能 支持在线解压，压缩
 <br />
 <br />主机SQL信息：
 <br /><span style="font-family: arial, helvetica, sans-serif;">
@@ -100,9 +92,6 @@
 <br />如果您使用FTP工具上传请切记您的FTP服务器端口是51021，我们建议使用Winscp来管理您的FTP服务器
 <br />因为默认情况下域名是绑定到wwwroot目录，所以您的程序也应该上传到FTP根目录下面的wwwroot目录
 <br />如果您在域名绑定的界面将域名绑定到了其他目录，那么程序应该上传到您自己指定的目录
-<br />有些机房需要使用代理服务器才能连接到FTP，
-<br />注意：只有站长扶持计划中的海外机房才需要使用代理，其他产品请勿设置代理，否则连不上。
-<br />代理类型：SOCKS5 代理服务器：91210021.cdn.webpagetest.vip 端口：51021 用户名称：qiangidc 密码密码：123456
 <br />
 <br />数据上传建议： 
 <br />强人网络所有虚拟主机产品均支持.ZIP格式的在线压缩或解压， 
