@@ -1,0 +1,56 @@
+<table style="width: 800px;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td align="left" valign="top"><span>亲爱的用户{$client_last_name}：</span></td>
+</tr>
+<tr>
+<td align="left" valign="top"><br /> 
+<strong><span style="font-family: arial, helvetica, sans-serif;">以下是关于您维护计划，详细信息如下：</span></strong> 
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>服务编号</strong></span>：QRWL-S{$service_id}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>产品名称</strong></span>：{$service_product_name} 
+<br />
+<br />针对 QRWL-S{$service_id} 的维护细节：
+<br />我们已在本月的3月8日对您的服务所在的节点进行了CDN加速系统的整合工作，
+<br />现在您只需要重新解析您的域名到我们的CDN系统就可以自动切换到最优质的节点线路。
+<br />
+<br />您需要使用CNAME方式将您的域名解析至如下地址，
+<br />{$service_username}.{$service_ns2}
+<br />
+<span>----------------------------------------------</span>
+<br />特别提示： 
+<br />原解析地址将于本月底失效，请尽快将域名解析到新系统。
+<br />
+<br />域名绑定示例： 
+<br />方式一，CNAME记录解析方式
+<br />举例您的域名是 www.qiangidc.com
+<br />第一个步骤，联系您的域名服务商将 www 使用CNAME记录的方式解析到 {$service_username}.{$service_ns2}
+<br />第二个步骤，登陆虚拟主机的控制面板，绑定您域名 www.qiangidc.com
+<br />此时您的网站就可以打开了，但有些域名服务商的解析比较慢，最长可能需要72小时才能完成 
+<br />
+<br />方式二，A记录解析方式 (不推荐)
+<br />特别注意：A记录的方式将无法保证线路最优配置，并且我们不会对调整节点之前做出提前通知
+<br />举例说明：某台前端节点被攻击，如果您的网站解析到这个固定节点IP后，我们无法做到故障自动切换。
+<br />举例说明：某台前端节点线路质量变差，如果您的网站解析到这个节点时网站速度也跟着变慢。
+<br />如果您的程序必须要一个固定IP地址请购买我公司带独立IP的虚拟主机产品，
+<br />广州，上海，北京，四川，香港等5个机房的固定IP地址3年付仅需85人民币。北京机房的IP量大从优。
+<br />
+<br />再次强调，我们无法保证某个固定IP的前端节点线路一直是最佳状态，更无法保证您的网站可以正常打开。
+<br />如果您明白了使用CNAME的优势和使用A记录的劣势后 仍然要解析到某个固定IP节点时请根据以下方式解析
+<br />
+<br />第一步，从CNAME记录获取节点的IP地址
+<br />使用windows的ping命令获取，开始-运行-cmd 回车后即可打开cmd的窗口 在cmd的窗口内输入以下内容
+<br />ping {$service_username}.{$service_ns2}
+<br />然后回车键会得到CNAME给出的临时节点IP地址，大部分节点我们都做了禁止ICMP包的安全策略，也就是禁PING了
+<br />得到IP地址后 根据以下方式进行解析
+<br />举例您的域名是 www.qiangidc.com
+<br />第一个步骤，联系您的域名服务商将 www 使用A记录的方式解析到 ping CNAME记录获的ip
+<br />第二个步骤，登陆虚拟主机的控制面板，绑定您域名 www.qiangidc.com
+<br />此时您的网站就可以打开了，但有些域名服务商的解析比较慢，最长可能需要72小时才能完成
+<br />
+<br />{$signature} 
+<br /><br /></td>
+</tr>
+</tbody>
+</table>

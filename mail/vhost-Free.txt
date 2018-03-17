@@ -35,7 +35,7 @@
 <br /><span style="font-family: arial, helvetica, sans-serif;">
 <strong>赠送域名</strong></span>：<a href="http://{$service_username}.{$service_ns1}">http://{$service_username}.{$service_ns1}</a> (仅限临时使用，请尽快绑定自有域名)
 <br /><span style="font-family: arial, helvetica, sans-serif;">
-<strong>解析地址</strong></span>：{$service_ns2} (自有域名的CNAME解析地址)
+<strong>解析地址</strong></span>：{$service_username}.{$service_ns2} (自有域名的CNAME解析地址)
 <br />
 <br />主机FTP信息：
 <br /><span style="font-family: arial, helvetica, sans-serif;">
@@ -58,12 +58,12 @@
 <br />我们建议您使用CNAME的方式解析您的域名，
 <br />CNAME的优势在于当服务器发生故障时我们可以快速将您的网站切换到其他可用节点。
 <br />我们会根据当前线路质量分配最优质空闲的前端节点服务器，。
-<br />当前服务器分配的CNAME地址是 {$service_ns2}
+<br />当前服务器分配的CNAME地址是 {$service_username}.{$service_ns2}
 <br />
 <br />域名绑定示例： 
 <br />方式一，CNAME记录解析方式
 <br />举例您的域名是 www.qiangidc.com
-<br />第一个步骤，联系您的域名服务商将 www 使用CNAME记录的方式解析到 {$service_ns2}
+<br />第一个步骤，联系您的域名服务商将 www 使用CNAME记录的方式解析到 {$service_username}.{$service_ns2}
 <br />第二个步骤，登陆虚拟主机的控制面板，绑定您域名 www.qiangidc.com
 <br />此时您的网站就可以打开了，但有些域名服务商的解析比较慢，最长可能需要72小时才能完成 
 <br />
@@ -79,7 +79,7 @@
 <br />
 <br />第一步，从CNAME记录获取节点的IP地址
 <br />使用windows的ping命令获取，开始-运行-cmd 回车后即可打开cmd的窗口 在cmd的窗口内输入以下内容
-<br />ping {$service_ns2}
+<br />ping {$service_username}.{$service_ns2}
 <br />然后回车键会得到CNAME给出的临时节点IP地址，大部分节点我们都做了禁止ICMP包的安全策略，也就是禁PING了
 <br />得到IP地址后 根据以下方式进行解析
 <br />举例您的域名是 www.qiangidc.com
