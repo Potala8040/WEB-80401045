@@ -1,5 +1,3 @@
-lftp dedibackup-dc3.online.net -u sd-127262,haokewei
-
 vi /etc/resolv.conf 
 nameserver 8.8.8.8
 nameserver 8.8.4.4
@@ -161,62 +159,3 @@ iptables -t nat -A PREROUTING -d 163.172.115.168 -p tcp --dport 39313 -j DNAT --
 iptables -t nat -A POSTROUTING -d 40.10.10.39 -p tcp --dport 3313 -j SNAT --to 40.10.10.50
 iptables -A FORWARD -o eth1 -d 40.10.10.39 -p tcp --dport 3313 -j ACCEPT
 iptables -A FORWARD -i eth1 -s 40.10.10.39 -p tcp --sport 3313 -j ACCEPT
-
-----------------------------------------------------------------------------------------------------
-vi /etc/rc.d/rc.local
-#QIANGIDC-BHS30901031
-service iptables stop
-iptables -F -t nat
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 51021 -j DNAT --to-destination 163.172.204.228:52199
-iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP
-
-vi /etc/rc.d/rc.local
-#QIANGIDC-BHS30101010
-service iptables stop
-iptables -F -t nat
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 443 -j DNAT --to-destination 163.172.115.168:31143
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 3312 -j DNAT --to-destination 163.172.115.168:31312
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 3313 -j DNAT --to-destination 163.172.115.168:31313
-iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP
-
-vi /etc/rc.d/rc.local
-#QIANGIDC-BHS30201010
-service iptables stop
-iptables -F -t nat
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 443 -j DNAT --to-destination 163.172.115.168:32143
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 3312 -j DNAT --to-destination 163.172.115.168:32312
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 3313 -j DNAT --to-destination 163.172.115.168:32313
-iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP
-
-vi /etc/rc.d/rc.local
-#QIANGIDC-BHS30301010
-service iptables stop
-iptables -F -t nat
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 443 -j DNAT --to-destination 163.172.115.168:33143
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 3312 -j DNAT --to-destination 163.172.115.168:33312
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 3313 -j DNAT --to-destination 163.172.115.168:33313
-iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP
-
-vi /etc/rc.d/rc.local
-#QIANGIDC-BHS30401010
-service iptables stop
-iptables -F -t nat
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 443 -j DNAT --to-destination 163.172.115.168:34143
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 3312 -j DNAT --to-destination 163.172.115.168:34312
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 3313 -j DNAT --to-destination 163.172.115.168:34313
-iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP
-
-vi /etc/rc.d/rc.local
-#QIANGIDC-BHS30501010
-service iptables stop
-iptables -F -t nat
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 443 -j DNAT --to-destination 163.172.115.168:35143
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 3312 -j DNAT --to-destination 163.172.115.168:35312
-iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 3313 -j DNAT --to-destination 163.172.115.168:35313
-iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP
