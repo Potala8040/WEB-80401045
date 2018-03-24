@@ -31,13 +31,13 @@
 <br />
 <br />主机WEB信息：
 <br /><span style="font-family: arial, helvetica, sans-serif;">
-<strong>赠送域名</strong></span>：<a href="http://{$service_username}.{$service_ns1}">http://{$service_username}.{$service_ns1}</a> (仅限临时使用，请尽快绑定自有域名)
+<strong>赠送域名</strong></span>：<a href="http://{$service_username}.{$service_ns3}">http://{$service_username}.{$service_ns3}</a> (仅限临时使用，请尽快绑定自有域名)
 <br /><span style="font-family: arial, helvetica, sans-serif;">
 <strong>解析地址</strong></span>：{$service_username}.{$service_ns2} (自有域名的CNAME解析地址)
 <br />
 <br />主机FTP信息：
 <br /><span style="font-family: arial, helvetica, sans-serif;">
-<strong>连接地址</strong></span>：{$service_server_hostname}
+<strong>连接地址</strong></span>：{$service_ns1}
 <br /><span style="font-family: arial, helvetica, sans-serif;">
 <strong>连接端口</strong></span>：51021
 <br /><span style="font-family: arial, helvetica, sans-serif;">
