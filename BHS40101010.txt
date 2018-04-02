@@ -24,43 +24,31 @@ apt remove os-prober
 ---------------------------------------------------------------------
 vi /etc/network/interfaces
 
-# The loopback network interface
 auto lo
 iface lo inet loopback
 
-# The primary network interface
-iface eth0 inet manual
+iface eno1 inet manual
 
-# The primary network interface
 auto vmbr0
 iface vmbr0 inet static
-    address 10.163.34.172
+    address 62.210.132.71
     netmask 255.255.255.0
-    gateway 10.163.0.1
-    bridge_ports eth0
+    gateway 62.210.132.1
+    bridge_ports eno1
     bridge_stp off
     bridge_fd 0
 
 auto vmbr1
 iface vmbr1 inet static
-    address 10.10.10.10
+    address 40.10.10.10
     netmask 255.255.255.0
     bridge_ports none
     bridge_stp off
     bridge_fd 0
     post-up echo 1 > /proc/sys/net/ipv4/ip_forward
-    post-up iptables -t nat -A POSTROUTING -s '10.10.10.0/24' -o vmbr0 -j MASQUERADE
-    post-down iptables -t nat -D POSTROUTING -s '10.10.10.0/24' -o vmbr0 -j MASQUERADE
-    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 51028 -j DNAT --to 10.10.10.51:22
-    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 51028 -j DNAT --to 10.10.10.51:22
-    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 80 -j DNAT --to 10.10.10.53:80
-    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 80 -j DNAT --to 10.10.10.53:80
-    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 3311 -j DNAT --to 10.10.10.53:3311
-    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 3311 -j DNAT --to 10.10.10.53:3311
-    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 3312 -j DNAT --to 10.10.10.53:3312
-    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 3312 -j DNAT --to 10.10.10.53:3312
-    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 465 -j DNAT --to 10.10.10.65:465
-    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 465 -j DNAT --to 10.10.10.65:465
-	
+    post-up iptables -t nat -A POSTROUTING -s '40.10.10.0/24' -o vmbr0 -j MASQUERADE
+    post-down iptables -t nat -D POSTROUTING -s '40.10.10.0/24' -o vmbr0 -j MASQUERADE
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 51028 -j DNAT --to 40.10.10.11:22
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 51028 -j DNAT --to 40.10.10.11:22
 
 https://download.openvz.org/template/precreated/centos-6-x86_64-minimal.tar.gz
