@@ -591,6 +591,70 @@ iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 57999 -j DNAT --
 iptables -t nat -A POSTROUTING -d 40.10.10.79 -p tcp --dport 3399 -j SNAT --to 40.10.10.92
 iptables -A FORWARD -o eth1 -d 40.10.10.79 -p tcp --dport 3399 -j ACCEPT
 iptables -A FORWARD -i eth1 -s 40.10.10.79 -p tcp --sport 3399 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58021 -j DNAT --to-destination 40.10.10.80:21
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 21 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 21 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 21 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58022 -j DNAT --to-destination 40.10.10.80:22
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 22 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 22 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 22 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58031 -j DNAT --to-destination 40.10.10.80:3311
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3311 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3311 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3311 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58032 -j DNAT --to-destination 40.10.10.80:3312
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3312 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3312 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3312 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58033 -j DNAT --to-destination 40.10.10.80:3313
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3313 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3313 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3313 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58089 -j DNAT --to-destination 40.10.10.80:3389
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3389 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3389 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3389 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58090 -j DNAT --to-destination 40.10.10.80:3390
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3390 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3390 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3390 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58091 -j DNAT --to-destination 40.10.10.80:3391
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3391 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3391 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3391 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58092 -j DNAT --to-destination 40.10.10.80:3392
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3392 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3392 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3392 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58093 -j DNAT --to-destination 40.10.10.80:3393
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3393 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3393 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3393 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58094 -j DNAT --to-destination 40.10.10.80:3394
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3394 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3394 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3394 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58095 -j DNAT --to-destination 40.10.10.80:3395
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3395 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3395 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3395 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58096 -j DNAT --to-destination 40.10.10.80:3396
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3396 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3396 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3396 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58097 -j DNAT --to-destination 40.10.10.80:3397
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3397 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3397 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3397 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58098 -j DNAT --to-destination 40.10.10.80:3398
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3398 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3398 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3398 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58099 -j DNAT --to-destination 40.10.10.80:3399
+iptables -t nat -A POSTROUTING -d 40.10.10.80 -p tcp --dport 3399 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.80 -p tcp --dport 3399 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.80 -p tcp --sport 3399 -j ACCEPT
 iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58121 -j DNAT --to-destination 40.10.10.81:21
 iptables -t nat -A POSTROUTING -d 40.10.10.81 -p tcp --dport 21 -j SNAT --to 40.10.10.92
 iptables -A FORWARD -o eth1 -d 40.10.10.81 -p tcp --dport 21 -j ACCEPT
@@ -1167,3 +1231,323 @@ iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 58999 -j DNAT --
 iptables -t nat -A POSTROUTING -d 40.10.10.89 -p tcp --dport 3399 -j SNAT --to 40.10.10.92
 iptables -A FORWARD -o eth1 -d 40.10.10.89 -p tcp --dport 3399 -j ACCEPT
 iptables -A FORWARD -i eth1 -s 40.10.10.89 -p tcp --sport 3399 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59521 -j DNAT --to-destination 40.10.10.95:21
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 21 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 21 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 21 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59522 -j DNAT --to-destination 40.10.10.95:22
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 22 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 22 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 22 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59531 -j DNAT --to-destination 40.10.10.95:3311
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3311 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3311 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3311 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59532 -j DNAT --to-destination 40.10.10.95:3312
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3312 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3312 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3312 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59533 -j DNAT --to-destination 40.10.10.95:3313
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3313 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3313 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3313 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59589 -j DNAT --to-destination 40.10.10.95:3389
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3389 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3389 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3389 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59590 -j DNAT --to-destination 40.10.10.95:3390
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3390 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3390 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3390 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59591 -j DNAT --to-destination 40.10.10.95:3391
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3391 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3391 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3391 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59592 -j DNAT --to-destination 40.10.10.95:3392
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3392 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3392 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3392 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59593 -j DNAT --to-destination 40.10.10.95:3393
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3393 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3393 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3393 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59594 -j DNAT --to-destination 40.10.10.95:3394
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3394 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3394 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3394 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59595 -j DNAT --to-destination 40.10.10.95:3395
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3395 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3395 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3395 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59596 -j DNAT --to-destination 40.10.10.95:3396
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3396 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3396 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3396 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59597 -j DNAT --to-destination 40.10.10.95:3397
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3397 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3397 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3397 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59598 -j DNAT --to-destination 40.10.10.95:3398
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3398 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3398 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3398 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59599 -j DNAT --to-destination 40.10.10.95:3399
+iptables -t nat -A POSTROUTING -d 40.10.10.95 -p tcp --dport 3399 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.95 -p tcp --dport 3399 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.95 -p tcp --sport 3399 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59621 -j DNAT --to-destination 40.10.10.96:21
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 21 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 21 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 21 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59622 -j DNAT --to-destination 40.10.10.96:22
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 22 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 22 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 22 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59631 -j DNAT --to-destination 40.10.10.96:3311
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3311 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3311 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3311 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59632 -j DNAT --to-destination 40.10.10.96:3312
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3312 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3312 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3312 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59633 -j DNAT --to-destination 40.10.10.96:3313
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3313 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3313 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3313 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59689 -j DNAT --to-destination 40.10.10.96:3389
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3389 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3389 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3389 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59690 -j DNAT --to-destination 40.10.10.96:3390
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3390 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3390 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3390 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59691 -j DNAT --to-destination 40.10.10.96:3391
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3391 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3391 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3391 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59692 -j DNAT --to-destination 40.10.10.96:3392
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3392 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3392 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3392 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59693 -j DNAT --to-destination 40.10.10.96:3393
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3393 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3393 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3393 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59694 -j DNAT --to-destination 40.10.10.96:3394
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3394 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3394 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3394 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59695 -j DNAT --to-destination 40.10.10.96:3395
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3395 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3395 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3395 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59696 -j DNAT --to-destination 40.10.10.96:3396
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3396 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3396 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3396 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59697 -j DNAT --to-destination 40.10.10.96:3397
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3397 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3397 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3397 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59698 -j DNAT --to-destination 40.10.10.96:3398
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3398 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3398 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3398 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59699 -j DNAT --to-destination 40.10.10.96:3399
+iptables -t nat -A POSTROUTING -d 40.10.10.96 -p tcp --dport 3399 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.96 -p tcp --dport 3399 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.96 -p tcp --sport 3399 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59721 -j DNAT --to-destination 40.10.10.97:21
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 21 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 21 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 21 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59722 -j DNAT --to-destination 40.10.10.97:22
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 22 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 22 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 22 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59731 -j DNAT --to-destination 40.10.10.97:3311
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3311 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3311 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3311 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59732 -j DNAT --to-destination 40.10.10.97:3312
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3312 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3312 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3312 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59733 -j DNAT --to-destination 40.10.10.97:3313
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3313 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3313 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3313 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59789 -j DNAT --to-destination 40.10.10.97:3389
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3389 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3389 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3389 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59790 -j DNAT --to-destination 40.10.10.97:3390
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3390 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3390 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3390 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59791 -j DNAT --to-destination 40.10.10.97:3391
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3391 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3391 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3391 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59792 -j DNAT --to-destination 40.10.10.97:3392
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3392 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3392 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3392 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59793 -j DNAT --to-destination 40.10.10.97:3393
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3393 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3393 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3393 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59794 -j DNAT --to-destination 40.10.10.97:3394
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3394 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3394 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3394 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59795 -j DNAT --to-destination 40.10.10.97:3395
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3395 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3395 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3395 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59796 -j DNAT --to-destination 40.10.10.97:3396
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3396 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3396 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3396 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59797 -j DNAT --to-destination 40.10.10.97:3397
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3397 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3397 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3397 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59798 -j DNAT --to-destination 40.10.10.97:3398
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3398 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3398 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3398 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59799 -j DNAT --to-destination 40.10.10.97:3399
+iptables -t nat -A POSTROUTING -d 40.10.10.97 -p tcp --dport 3399 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.97 -p tcp --dport 3399 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.97 -p tcp --sport 3399 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59821 -j DNAT --to-destination 40.10.10.98:21
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 21 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 21 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 21 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59822 -j DNAT --to-destination 40.10.10.98:22
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 22 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 22 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 22 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59831 -j DNAT --to-destination 40.10.10.98:3311
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3311 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3311 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3311 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59832 -j DNAT --to-destination 40.10.10.98:3312
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3312 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3312 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3312 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59833 -j DNAT --to-destination 40.10.10.98:3313
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3313 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3313 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3313 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59889 -j DNAT --to-destination 40.10.10.98:3389
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3389 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3389 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3389 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59890 -j DNAT --to-destination 40.10.10.98:3390
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3390 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3390 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3390 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59891 -j DNAT --to-destination 40.10.10.98:3391
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3391 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3391 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3391 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59892 -j DNAT --to-destination 40.10.10.98:3392
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3392 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3392 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3392 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59893 -j DNAT --to-destination 40.10.10.98:3393
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3393 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3393 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3393 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59894 -j DNAT --to-destination 40.10.10.98:3394
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3394 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3394 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3394 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59895 -j DNAT --to-destination 40.10.10.98:3395
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3395 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3395 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3395 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59896 -j DNAT --to-destination 40.10.10.98:3396
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3396 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3396 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3396 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59897 -j DNAT --to-destination 40.10.10.98:3397
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3397 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3397 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3397 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59898 -j DNAT --to-destination 40.10.10.98:3398
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3398 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3398 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3398 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59899 -j DNAT --to-destination 40.10.10.98:3399
+iptables -t nat -A POSTROUTING -d 40.10.10.98 -p tcp --dport 3399 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.98 -p tcp --dport 3399 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.98 -p tcp --sport 3399 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59921 -j DNAT --to-destination 40.10.10.99:21
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 21 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 21 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 21 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59922 -j DNAT --to-destination 40.10.10.99:22
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 22 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 22 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 22 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59931 -j DNAT --to-destination 40.10.10.99:3311
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3311 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3311 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3311 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59932 -j DNAT --to-destination 40.10.10.99:3312
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3312 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3312 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3312 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59933 -j DNAT --to-destination 40.10.10.99:3313
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3313 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3313 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3313 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59989 -j DNAT --to-destination 40.10.10.99:3389
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3389 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3389 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3389 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59990 -j DNAT --to-destination 40.10.10.99:3390
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3390 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3390 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3390 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59991 -j DNAT --to-destination 40.10.10.99:3391
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3391 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3391 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3391 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59992 -j DNAT --to-destination 40.10.10.99:3392
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3392 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3392 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3392 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59993 -j DNAT --to-destination 40.10.10.99:3393
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3393 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3393 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3393 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59994 -j DNAT --to-destination 40.10.10.99:3394
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3394 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3394 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3394 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59995 -j DNAT --to-destination 40.10.10.99:3395
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3395 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3395 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3395 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59996 -j DNAT --to-destination 40.10.10.99:3396
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3396 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3396 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3396 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59997 -j DNAT --to-destination 40.10.10.99:3397
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3397 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3397 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3397 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59998 -j DNAT --to-destination 40.10.10.99:3398
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3398 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3398 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3398 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 59999 -j DNAT --to-destination 40.10.10.99:3399
+iptables -t nat -A POSTROUTING -d 40.10.10.99 -p tcp --dport 3399 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.99 -p tcp --dport 3399 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.99 -p tcp --sport 3399 -j ACCEPT
