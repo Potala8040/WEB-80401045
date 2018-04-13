@@ -1,0 +1,59 @@
+<script language='javascript' src='{{$STATIC}}js/domain.js'></script>
+
+<div class="main">
+	<div class="public_pa">域名绑定</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th style="border-left:0">操作</th>
+				<th>域名</th>
+				<th>{{if $user.cdn}}ip{{else}}目录{{/if}}</th>
+			</tr>
+		</thead>
+		{{foreach from=$list item=row}}
+		<tr id='{{$row.id}}t'>
+			<td style="border-left:0">[<a href="javascript:domain_del('{{$row.name}}',{{$row.id}})">删除</a>]</td>
+			<td><a href='http://{{$row.name}}' target='_blank'>{{$row.name}}</a></td>
+			<td>{{$row.value}}</td>
+		</tr>
+		{{/foreach}}
+
+	</table>
+
+	<form name='nodeform' action="javascript:domain_add();" method="post">
+		<table class="table">
+			<thead>
+				<tr>
+					<th colspan='2'>注意：请勿使用IP方式进行解析域名，只有CNAME方式才会有CDN加速。当服务器被攻击时我们可以随时切换到空闲节点。</th>
+				</tr>
+				<tr>
+					<th colspan='2'>在添加绑定之前请先解析域名，如果您购买了独立IP，请将域名解析到您的独立IP地址。否则请解析到下面的服务器默认地址，</th>
+				</tr>
+				<tr>
+					<th colspan='2'>使用<font color='red'> CNAME </font>方式解析至服务专用地址：<font color='red'> {{$user.name}}{{$domain_note}}</font></th>
+				</tr>
+			</thead>
+			<tr>
+				<td style="width:70px">域名</td>
+				<td><input type='text' size='40' name='domain' id='domain' value="{{$domain.domain}}" /></td>
+			</tr>
+
+			{{if $subdir_flag}}
+			<tr>
+				<td style="width:70px">{{if $user.cdn}}IP{{else}}目录{{/if}}</td>
+				<td><input type='text' name='subdir' id='subdir' value="{{$default_subdir}}" size='40' /></td>
+			</tr>
+			{{/if}}
+			<tr>
+				<td style="width:70px">&nbsp;</td>
+				<td>
+				<input type="button" id='button' class="btn btn-warning" onclick='domain_add();' value="确定" />
+				<input type="button" id='button' class="btn btn-warning" onclick='piao_domain_import();' value="批量增加" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+<script>
+	nodeform.domain.focus();
+</script>
