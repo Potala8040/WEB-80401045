@@ -5,15 +5,15 @@
 </tr>
 <tr>
 <td align="left" valign="top"><br /> 
-<strong><span style="font-family: arial, helvetica, sans-serif;">服务暂停通知。</span></strong> 
+<strong><span style="font-family: arial, helvetica, sans-serif;">服务取消确认。</span></strong> 
 <br /> 
-<br />这是一个通知，您的服务现在已经取消暂停。服务的详情如下: 
+<br />这封电子邮件是为了确认我们已收到您对下列服务的取消请求。 
 <br /><span style="font-family: arial, helvetica, sans-serif;">
 <strong>服务编号</strong></span>：QRWL-S{$service_id}
 <br /><span style="font-family: arial, helvetica, sans-serif;">
 <strong>服务名称</strong></span>：{$service_product_name}
 <br /><span style="font-family: arial, helvetica, sans-serif;">
-<strong>到期日期</strong></span>：{$service_next_due_date}
+<strong>取消方式</strong></span>：{if $service_cancellation_type=="Immediate"}该服务将在24小时内终止.{else}该服务将在当前结算周期结束时取消{$service_next_due_date}.{/if}
 <br /> 
 <br /> 
 <br />{$signature} 
