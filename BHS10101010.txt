@@ -9,9 +9,9 @@ sudo apt-get install net-tools
 
 vi /etc/hosts
 127.0.0.1  localhost
-10.105.98.45 10101011.bhs.qiangidc.vip BHS10101011 pvelocalhost
+10.10.10.10 10101010.bhs.qiangidc.vip BHS10101010 pvelocalhost
 vi /etc/hostname
-BHS10101011
+BHS10101010
 
 dd if=/dev/zero of=/swapfile bs=4096 count=1572864
 mkswap /swapfile
@@ -27,11 +27,12 @@ apt remove os-prober
 ---------------------------------------------------------------------	
 vi /etc/network/interfaces
 
-# BHS10201010
+# BHS10101010
 auto vmbr00
 iface vmbr00 inet static
-        address  99.99.99.99
+        address  10.10.10.10
         netmask  255.255.255.0
+        gateway  10.10.10.1
         bridge_ports eth0
         bridge_stp off
         bridge_fd 0
@@ -46,8 +47,10 @@ iface vmbr01 inet static
         post-up echo 1 > /proc/sys/net/ipv4/ip_forward
         post-up iptables -t nat -A POSTROUTING -s '91.10.10.0/24' -o vmbr00 -j MASQUERADE
         post-down iptables -t nat -D POSTROUTING -s '91.10.10.0/24' -o vmbr00 -j MASQUERADE
-        post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 51028 -j DNAT --to 91.10.10.99:51022
-        post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 51028 -j DNAT --to 91.10.10.99:51022
+        post-up iptables -t nat -A PREROUTING -i vmbr00 -p tcp --dport 50195 -j DNAT --to 91.10.10.95:25
+        post-down iptables -t nat -D PREROUTING -i vmbr00 -p tcp --dport 50195 -j DNAT --to 91.10.10.95:25
+        post-up iptables -t nat -A PREROUTING -i vmbr00 -p tcp --dport 51028 -j DNAT --to 91.10.10.99:51022
+        post-down iptables -t nat -D PREROUTING -i vmbr00 -p tcp --dport 51028 -j DNAT --to 91.10.10.99:51022
 
 auto vmbr11
 iface vmbr11 inet static

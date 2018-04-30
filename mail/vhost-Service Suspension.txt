@@ -1,0 +1,26 @@
+<table style="width: 800px;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td align="left" valign="top"><span>亲爱的用户{$client_last_name}：</span></td>
+</tr>
+<tr>
+<td align="left" valign="top"><br /> 
+<strong><span style="font-family: arial, helvetica, sans-serif;">服务暂停通知。</span></strong> 
+<br /> 
+<br />这是一个通知，您的服务现在已经暂停。服务的详情如下: 
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>服务编号</strong></span>：QRWL-S{$service_id}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>服务名称</strong></span>：{$service_product_name}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>到期日期</strong></span>：{$service_next_due_date}
+<br /><span style="font-family: arial, helvetica, sans-serif;">
+<strong>暂停原因</strong></span>：{$service_suspension_reason}
+<br /> 
+<br />请尽快与我们联系，让您的服务重新启动。 
+<br /> 
+<br />{$signature} 
+<br /><br /></td>
+</tr>
+</tbody>
+</table>
