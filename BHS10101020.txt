@@ -1,0 +1,53 @@
+auto eth1:01
+iface eth1:01 inet static
+address 10.10.20.21
+netmask 255.255.255.0
+gateway 10.10.20.1
+
+auto eth1:02
+iface eth1:02 inet static
+address 10.10.20.22
+netmask 255.255.255.0
+gateway 10.10.20.1
+
+auto eth1:03
+iface eth1:03 inet static
+address 10.10.20.23
+netmask 255.255.255.0
+gateway 10.10.20.1
+
+auto eth1:04
+iface eth1:04 inet static
+address 10.10.20.24
+netmask 255.255.255.0
+gateway 10.10.20.1
+
+auto eth1:05
+iface eth1:05 inet static
+address 10.10.20.25
+netmask 255.255.255.0
+gateway 10.10.20.1
+
+auto eth1:06
+iface eth1:06 inet static
+address 10.10.20.26
+netmask 255.255.255.0
+gateway 10.10.20.1
+
+auto eth1:07
+iface eth1:07 inet static
+address 10.10.20.27
+netmask 255.255.255.0
+gateway 10.10.20.1
+
+auto eth1:08
+iface eth1:08 inet static
+address 10.10.20.28
+netmask 255.255.255.0
+gateway 10.10.20.1
+
+auto eth1:09
+iface eth1:09 inet static
+address 10.10.20.29
+netmask 255.255.255.0
+gateway 10.10.20.1
