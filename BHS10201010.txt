@@ -1,59 +1,28 @@
-apt-get remove vim-common
-apt-get install vim
-
-vi /usr/share/vim/vim80/defaults.vim
-
-set mouse-=a
-
-sudo apt-get install net-tools
-
-vi /etc/hosts
-127.0.0.1  localhost
-10.20.10.10 10201010.bhs.qiangidc.vip BHS10201010 pvelocalhost
-vi /etc/hostname
-BHS10201010
-
-dd if=/dev/zero of=/swapfile bs=4096 count=1572864
-mkswap /swapfile
-swapon /swapfile
-echo "/swapfile swap swap defaults 0 0" >> /etc/fstab
-
-echo "deb http://download.proxmox.com/debian/pve stretch pve-no-subscription" > /etc/apt/sources.list.d/pve-install-repo.list
-wget http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-5.x.gpg
-apt update && apt dist-upgrade
-apt install proxmox-ve postfix open-iscsi
-apt remove os-prober
-
 ---------------------------------------------------------------------	
 vi /etc/network/interfaces
-
-# BHS10201010
 auto eth0
-iface eth0 inet manual
-
-iface eth1 inet manual
+iface eth0 inet static
+iface eth1 inet static
 
 auto vmbr00
 iface vmbr00 inet static
-        address  10.10.10.10
+        address  10.20.10.10
         netmask  255.255.255.0
-        gateway  10.10.10.1
+        gateway  10.20.10.1
         bridge_ports eth0
         bridge_stp off
         bridge_fd 0
 
 auto vmbr01
 iface vmbr01 inet static
-        address  91.10.10.10
+        address  10.25.10.10
         netmask  255.255.255.0
         bridge_ports none
         bridge_stp off
         bridge_fd 0
         post-up echo 1 > /proc/sys/net/ipv4/ip_forward
-        post-up iptables -t nat -A POSTROUTING -s '91.10.10.0/24' -o vmbr00 -j MASQUERADE
-        post-down iptables -t nat -D POSTROUTING -s '91.10.10.0/24' -o vmbr00 -j MASQUERADE
-        post-up iptables -t nat -A PREROUTING -i vmbr00 -p tcp --dport 51028 -j DNAT --to 91.10.10.99:51022
-        post-down iptables -t nat -D PREROUTING -i vmbr00 -p tcp --dport 51028 -j DNAT --to 91.10.10.99:51022
+        post-up iptables -t nat -A POSTROUTING -s '10.25.10.0/24' -o vmbr00 -j MASQUERADE
+        post-down iptables -t nat -D POSTROUTING -s '10.25.10.0/24' -o vmbr00 -j MASQUERADE
 
 auto vmbr11
 iface vmbr11 inet static
