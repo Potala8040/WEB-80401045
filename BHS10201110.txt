@@ -1,0 +1,12 @@
+vi /etc/sysctl.conf
+net.ipv4.ip_forward = 1
+sysctl -p
+cat /proc/sys/net/ipv4/ip_forward
+
+----------------------------------------------------------------------------------------------------
+vi /etc/rc.d/rc.local
+
+service iptables stop
+iptables -F -t nat
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 51029 -j DNAT --to-destination 10.10.12.10:51029
