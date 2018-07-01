@@ -9,7 +9,7 @@ sudo apt-get install net-tools
 
 vi /etc/hosts
 127.0.0.1  localhost
-10.10.10.10 10101010.bhs.qiangidc.vip BHS10101010 pvelocalhost
+10.20.10.10 10201010.bhs.qiangidc.vip BHS10201010 pvelocalhost
 vi /etc/hostname
 BHS10101010
 
