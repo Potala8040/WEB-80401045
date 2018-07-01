@@ -6,9 +6,9 @@ iface eth1 inet static
 
 auto vmbr00
 iface vmbr00 inet static
-        address  10.10.10.10
+        address  10.20.10.10
         netmask  255.255.255.0
-        gateway  10.10.10.1
+        gateway  10.20.10.1
         bridge_ports eth0
         bridge_stp off
         bridge_fd 0
