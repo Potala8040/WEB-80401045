@@ -1,0 +1,115 @@
+lftp dedibackup-dc3.online.net -u sd-92172,haokewei
+lftp dedibackup-dc3.online.net -u sd-94775,haokewei
+---------------------------------------------------------------------
+vi /etc/network/interfaces
+
+auto lo
+iface lo inet loopback
+
+iface eno1 inet manual
+
+auto vmbr0
+iface vmbr0 inet static
+    address 163.172.36.128
+    netmask 255.255.255.0
+    gateway 163.172.36.1
+    bridge_ports eno1
+    bridge_stp off
+    bridge_fd 0
+
+auto vmbr1
+iface vmbr1 inet static
+    address 40.10.10.10
+    netmask 255.255.255.0
+    bridge_ports none
+    bridge_stp off
+    bridge_fd 0
+    post-up echo 1 > /proc/sys/net/ipv4/ip_forward
+    post-up iptables -t nat -A POSTROUTING -s '40.10.10.0/24' -o vmbr0 -j MASQUERADE
+    post-down iptables -t nat -D POSTROUTING -s '40.10.10.0/24' -o vmbr0 -j MASQUERADE
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 51028 -j DNAT --to 40.10.10.28:22
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 51028 -j DNAT --to 40.10.10.28:22
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 51029 -j DNAT --to 40.10.10.29:80
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 51029 -j DNAT --to 40.10.10.29:80
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 51030 -j DNAT --to 40.10.10.30:80
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 51030 -j DNAT --to 40.10.10.30:80
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53120 -j DNAT --to 40.10.10.31:20
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53120 -j DNAT --to 40.10.10.31:20	
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53121 -j DNAT --to 40.10.10.31:21
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53121 -j DNAT --to 40.10.10.31:21
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53122 -j DNAT --to 40.10.10.31:22
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53122 -j DNAT --to 40.10.10.31:22
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53180 -j DNAT --to 40.10.10.31:80
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53180 -j DNAT --to 40.10.10.31:80
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53181 -j DNAT --to 40.10.10.31:443
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53181 -j DNAT --to 40.10.10.31:443
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53185 -j DNAT --to 40.10.10.31:3311
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53185 -j DNAT --to 40.10.10.31:3311
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53186 -j DNAT --to 40.10.10.31:3312
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53186 -j DNAT --to 40.10.10.31:3312
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53187 -j DNAT --to 40.10.10.31:3313
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53187 -j DNAT --to 40.10.10.31:3313
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53220 -j DNAT --to 40.10.10.32:20
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53220 -j DNAT --to 40.10.10.32:20	
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53221 -j DNAT --to 40.10.10.32:21
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53221 -j DNAT --to 40.10.10.32:21
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53222 -j DNAT --to 40.10.10.32:22
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53222 -j DNAT --to 40.10.10.32:22
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53280 -j DNAT --to 40.10.10.32:80
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53280 -j DNAT --to 40.10.10.32:80
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53281 -j DNAT --to 40.10.10.32:443
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53281 -j DNAT --to 40.10.10.32:443
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53285 -j DNAT --to 40.10.10.32:3311
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53285 -j DNAT --to 40.10.10.32:3311
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53286 -j DNAT --to 40.10.10.32:3312
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53286 -j DNAT --to 40.10.10.32:3312
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53287 -j DNAT --to 40.10.10.32:3313
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53287 -j DNAT --to 40.10.10.32:3313
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53320 -j DNAT --to 40.10.10.33:20
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53320 -j DNAT --to 40.10.10.33:20	
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53321 -j DNAT --to 40.10.10.33:21
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53321 -j DNAT --to 40.10.10.33:21
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53322 -j DNAT --to 40.10.10.33:22
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53322 -j DNAT --to 40.10.10.33:22
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53380 -j DNAT --to 40.10.10.33:80
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53380 -j DNAT --to 40.10.10.33:80
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53381 -j DNAT --to 40.10.10.33:443
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53381 -j DNAT --to 40.10.10.33:443
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53385 -j DNAT --to 40.10.10.33:3311
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53385 -j DNAT --to 40.10.10.33:3311
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53386 -j DNAT --to 40.10.10.33:3312
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53386 -j DNAT --to 40.10.10.33:3312
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53387 -j DNAT --to 40.10.10.33:3313
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53387 -j DNAT --to 40.10.10.33:3313
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53420 -j DNAT --to 40.10.10.34:20
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53420 -j DNAT --to 40.10.10.34:20	
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53421 -j DNAT --to 40.10.10.34:21
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53421 -j DNAT --to 40.10.10.34:21
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53422 -j DNAT --to 40.10.10.34:22
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53422 -j DNAT --to 40.10.10.34:22
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53480 -j DNAT --to 40.10.10.34:80
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53480 -j DNAT --to 40.10.10.34:80
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53481 -j DNAT --to 40.10.10.34:443
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53481 -j DNAT --to 40.10.10.34:443
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53485 -j DNAT --to 40.10.10.34:3311
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53485 -j DNAT --to 40.10.10.34:3311
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53486 -j DNAT --to 40.10.10.34:3312
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53486 -j DNAT --to 40.10.10.34:3312
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53487 -j DNAT --to 40.10.10.34:3313
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53487 -j DNAT --to 40.10.10.34:3313
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53520 -j DNAT --to 40.10.10.35:20
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53520 -j DNAT --to 40.10.10.35:20	
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53521 -j DNAT --to 40.10.10.35:21
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53521 -j DNAT --to 40.10.10.35:21
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53522 -j DNAT --to 40.10.10.35:22
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53522 -j DNAT --to 40.10.10.35:22
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53580 -j DNAT --to 40.10.10.35:80
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53580 -j DNAT --to 40.10.10.35:80
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53581 -j DNAT --to 40.10.10.35:443
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53581 -j DNAT --to 40.10.10.35:443
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53585 -j DNAT --to 40.10.10.35:3311
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53585 -j DNAT --to 40.10.10.35:3311
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53586 -j DNAT --to 40.10.10.35:3312
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53586 -j DNAT --to 40.10.10.35:3312
+    post-up iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 53587 -j DNAT --to 40.10.10.35:3313
+    post-down iptables -t nat -D PREROUTING -i vmbr0 -p tcp --dport 53587 -j DNAT --to 40.10.10.35:3313

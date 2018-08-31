@@ -15,6 +15,10 @@ cat /proc/sys/net/ipv4/ip_forward
 vi /etc/rc.d/rc.local	
 #QIANGIDC
 service iptables stop
+iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 51029 -j DNAT --to-destination 40.10.10.90:3389
+iptables -t nat -A POSTROUTING -d 40.10.10.90 -p tcp --dport 3389 -j SNAT --to 40.10.10.92
+iptables -A FORWARD -o eth1 -d 40.10.10.90 -p tcp --dport 3389 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.90 -p tcp --sport 3389 -j ACCEPT
 iptables -t nat -A PREROUTING -d 163.172.204.228 -p tcp --dport 57121 -j DNAT --to-destination 40.10.10.71:21
 iptables -t nat -A POSTROUTING -d 40.10.10.71 -p tcp --dport 21 -j SNAT --to 40.10.10.92
 iptables -A FORWARD -o eth1 -d 40.10.10.71 -p tcp --dport 21 -j ACCEPT

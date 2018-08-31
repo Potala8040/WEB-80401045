@@ -19,6 +19,10 @@ iptables -t nat -A PREROUTING -d 163.172.115.168 -p tcp --dport 51028 -j DNAT --
 iptables -t nat -A POSTROUTING -d 40.10.10.11 -p tcp --dport 22 -j SNAT --to 40.10.10.91
 iptables -A FORWARD -o eth1 -d 40.10.10.11 -p tcp --dport 22 -j ACCEPT
 iptables -A FORWARD -i eth1 -s 40.10.10.11 -p tcp --sport 22 -j ACCEPT
+iptables -t nat -A PREROUTING -d 163.172.115.168 -p tcp --dport 51029 -j DNAT --to-destination 40.10.10.12:80
+iptables -t nat -A POSTROUTING -d 40.10.10.12 -p tcp --dport 80 -j SNAT --to 40.10.10.91
+iptables -A FORWARD -o eth1 -d 40.10.10.12 -p tcp --dport 80 -j ACCEPT
+iptables -A FORWARD -i eth1 -s 40.10.10.12 -p tcp --sport 80 -j ACCEPT
 iptables -t nat -A PREROUTING -d 163.172.115.168 -p tcp --dport 52121 -j DNAT --to-destination 40.10.10.21:21
 iptables -t nat -A POSTROUTING -d 40.10.10.21 -p tcp --dport 21 -j SNAT --to 40.10.10.91
 iptables -A FORWARD -o eth1 -d 40.10.10.21 -p tcp --dport 21 -j ACCEPT

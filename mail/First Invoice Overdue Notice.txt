@@ -1,0 +1,28 @@
+<table style="width: 800px;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td align="left" valign="top"><span>亲爱的{$client_last_name}：</span></td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<br /> 
+<strong><span style="font-family: arial, helvetica, sans-serif;">账单逾期通知。</span></strong> 
+<br /> 
+<br />这是一个帐单通知，
+<br />您的账单编号为#{$invoice_num} 的账单现在仍未支付，
+<br />账单将在截止日期{$invoice_date_due} 之后无法继续支付。
+<br />生成日期: {$invoice_date_created} 
+<br />付款方式: {$invoice_payment_method} 
+<br />账单编号: {$invoice_num} 
+<br />余额到期: {$invoice_balance} 
+<br />截止日期: {$invoice_date_due} 
+<br /> 
+<br />您可以登录到您的客户区域以查看和支付这个账单 
+<br />{$invoice_link} 
+<br /> 
+<br /> 
+<br />{$signature} 
+<br /><br /></td>
+</tr>
+</tbody>
+</table>
